@@ -1,3 +1,16 @@
+https://registry.hub.docker.com/_/nginx/
+
+```
+docker build -f Dockerfile -t nginx-edittrich .
+docker run --name nginx-edittrich -d -p 8080:80 nginx-edittrich
+sleep 3
+curl http://localhost:8080/
+docker ps -f "name=nginx-edittrich" -aq | xargs docker stop | xargs docker rm
+
+docker save -o nginx-edittrich.tar nginx-edittrich
+
+```
+
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Community Support](https://badgen.net/badge/support/community/cyan?icon=awesome)](https://github.com/nginxinc/docker-nginx/blob/master/SUPPORT.md)
 
